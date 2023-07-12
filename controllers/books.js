@@ -30,6 +30,22 @@ let Books = [
 
 let Carts = []
 
+
+router.get('/list', (req, res) => { 
+    console.log('list :>> ', list);
+    try {
+        res.status(200).json({
+            status: true,
+            response:Books
+        })
+    } catch (error) {
+        return res.status(500).send({
+            status: false,
+            message:"Something went wrong, Please try again."
+        })
+    }
+})
+
 router.get('/search/:value', (req, res) => { 
     const value = req.params.value;
     try {

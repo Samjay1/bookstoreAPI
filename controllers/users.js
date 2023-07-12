@@ -24,6 +24,7 @@ router.post('/register', async (req,res)=>{
                 email,
                 password:hashedpassword
             }
+            console.log('new_user :>> ', new_user);
             Users.push(new_user)
                 var token = jwt.sign({UserLevel: process.env.PERMISSION_LEVEL_1}, process.env.SECRET_KEY);
                 res.status(201).json({
@@ -66,6 +67,11 @@ router.post('/login', async (req, res)=>{
                             if(result ==true){
                                 console.log('bcrypt message', result)
                                 //sending response 
+                                console.log('user login', {
+                                        token,
+                                        id:user.id,
+                                        email:user.email
+                                    });
                                 return res.status(200).json({
                                     status: true,
                                     message: 'user login successful',

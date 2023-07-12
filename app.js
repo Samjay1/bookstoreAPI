@@ -4,6 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const userController = require('./controllers/users')
+const bookController = require('./controllers/books')
 
 const app = express();
 
@@ -19,7 +20,8 @@ app.use(cors({
 
 
 // users controllers
-app.use('/',userController)
+app.use('/', userController)
+app.use('/',bookController)
 
 
 app.get('/', (req, res)=>{
