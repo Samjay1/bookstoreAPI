@@ -32,7 +32,7 @@ let Carts = []
 
 
 router.get('/list', (req, res) => { 
-    console.log('list :>> ', list);
+    console.log('list :>> ');
     try {
         res.status(200).json({
             status: true,
